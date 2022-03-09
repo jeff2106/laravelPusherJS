@@ -27,7 +27,7 @@ const getUsers = async () => {
     });
     var channel = pusher.subscribe("leaderboard");
     channel.bind("App\\Events\\ScoreUpdated", function (data) {
-      alert(JSON.stringify(data));
+      
       var element = document.getElementById(data.name);
       if(element){
         element.parentNode.removeChild(element);
