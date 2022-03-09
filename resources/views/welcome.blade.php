@@ -8,13 +8,13 @@
 
   <script>
    let BASE_URL = "http://127.0.0.1:8000/leaderboard";
-const getTodoItems = async () => {
+const getUsers = async () => {
   try {
     const response = await axios.get(`${BASE_URL}`);
     const e = document.createElement("ul");
 
-    const todoItems = response.data;
-    const Sort = todoItems.sort((a, b) => b.score - a.score);
+    const Users = response.data;
+    const Sort = Users.sort((a, b) => b.score - a.score);
 
     Sort.forEach(function (color) {
       e.innerHTML += `<li id="${color.name}"">${color.name} : ${color.score}</li>`;
@@ -34,7 +34,7 @@ const getTodoItems = async () => {
       e.innerHTML += `<li id="${data.name}">${data.name} : ${data.score}</li>`;
   }else{
     e.innerHTML += `<li id="${data.name}">${data.name} : ${data.score}</li>`;
-    todoItems.push(data);
+    Users.push(data);
   }
       
     });
@@ -42,7 +42,7 @@ const getTodoItems = async () => {
     console.error(errors);
   }
   };
-getTodoItems();
+getUsers();
 
 
   </script>
